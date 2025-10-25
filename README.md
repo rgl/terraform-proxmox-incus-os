@@ -14,7 +14,7 @@ Set your Proxmox details:
 
 ```bash
 # see https://registry.terraform.io/providers/bpg/proxmox/latest/docs#argument-reference
-# see environment variables at https://github.com/bpg/terraform-provider-proxmox/blob/v0.84.1/proxmoxtf/provider/provider.go#L52-L61
+# see environment variables at https://github.com/bpg/terraform-provider-proxmox/blob/v0.85.1/proxmoxtf/provider/provider.go#L52-L61
 cat >secrets-proxmox.sh <<EOF
 unset HTTPS_PROXY
 #export HTTPS_PROXY='http://localhost:8080'
@@ -51,8 +51,8 @@ Get information about incus os and incus:
 
 ```bash
 # see https://github.com/lxc/incus-os/blob/main/doc/rest-api.md
-# see https://github.com/lxc/incus-os/tree/202510102203/incus-osd/internal/rest
-# see https://github.com/lxc/incus-os/blob/202510102203/incus-osd/internal/rest/server.go
+# see https://github.com/lxc/incus-os/tree/202510240220/incus-osd/internal/rest
+# see https://github.com/lxc/incus-os/blob/202510240220/incus-osd/internal/rest/server.go
 incus query incus-os-example:/os/1.0
 incus admin os system show incus-os-example:security
 incus query incus-os-example:/os/1.0/system/security
@@ -111,8 +111,8 @@ incus delete incus-os-example:debian-vm
 Reboot or poweroff incus os:
 
 ```bash
-# see https://github.com/lxc/incus-os/blob/202510102203/doc/rest-api.md
-# see https://github.com/lxc/incus-os/blob/202510102203/incus-osd/internal/rest/api_system.go
+# see https://github.com/lxc/incus-os/blob/202510240220/doc/rest-api.md
+# see https://github.com/lxc/incus-os/blob/202510240220/incus-osd/internal/rest/api_system.go
 incus query -X POST incus-os-example:/os/1.0/system/:reboot
 incus query -X POST incus-os-example:/os/1.0/system/:poweroff
 ```
