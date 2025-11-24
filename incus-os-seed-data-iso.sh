@@ -13,6 +13,7 @@ case "$INCUS_OS_SEED_DATA_COMMAND" in
     install -d "$tmp_path"
     echo -n "$INCUS_OS_SEED_DATA_NETWORK_CONFIG" >"$tmp_path/network.yaml"
     echo -n "$INCUS_OS_SEED_DATA_INCUS_CONFIG" >"$tmp_path/incus.yaml"
+    echo -n "$INCUS_OS_SEED_DATA_APPLICATIONS_CONFIG" >"$tmp_path/applications.yaml"
     xorriso \
       -as genisoimage \
       -output "$INCUS_OS_SEED_DATA_ISO_PATH" \

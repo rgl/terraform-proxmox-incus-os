@@ -35,6 +35,7 @@ resource "terraform_data" "incus_os_seed_data" {
 
     # see https://github.com/lxc/incus-os/blob/202511212125/incus-osd/api/system_network.go
     network_config = yamlencode({
+      version = "1"
       dns = {
         hostname    = local.nodes[count.index].name
         domain      = "test"
@@ -59,6 +60,7 @@ resource "terraform_data" "incus_os_seed_data" {
     })
 
     incus_config = yamlencode({
+      version        = "1"
       apply_defaults = true
       preseed = {
         certificates = [
@@ -71,15 +73,25 @@ resource "terraform_data" "incus_os_seed_data" {
         ]
       }
     })
+
+    applications_config = yamlencode({
+      version = "1"
+      applications = [
+        {
+          name = "incus"
+        }
+      ]
+    })
   }
 
   provisioner "local-exec" {
     when = create
     environment = {
-      INCUS_OS_SEED_DATA_COMMAND        = "create"
-      INCUS_OS_SEED_DATA_ISO_PATH       = self.triggers_replace.iso_path
-      INCUS_OS_SEED_DATA_NETWORK_CONFIG = self.triggers_replace.network_config
-      INCUS_OS_SEED_DATA_INCUS_CONFIG   = self.triggers_replace.incus_config
+      INCUS_OS_SEED_DATA_COMMAND             = "create"
+      INCUS_OS_SEED_DATA_ISO_PATH            = self.triggers_replace.iso_path
+      INCUS_OS_SEED_DATA_NETWORK_CONFIG      = self.triggers_replace.network_config
+      INCUS_OS_SEED_DATA_INCUS_CONFIG        = self.triggers_replace.incus_config
+      INCUS_OS_SEED_DATA_APPLICATIONS_CONFIG = self.triggers_replace.applications_config
     }
     interpreter = ["bash"]
     command     = "${path.module}/incus-os-seed-data-iso.sh"
