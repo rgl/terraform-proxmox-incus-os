@@ -11,7 +11,7 @@ variable "proxmox_pve_node_address" {
 variable "incus_os_version" {
   type = string
   # renovate: datasource=github-tags depName=lxc/incus-os
-  default = "202510280048"
+  default = "202511212125"
   validation {
     condition     = can(regex("^\\d+", var.incus_os_version))
     error_message = "Must be a version number."
