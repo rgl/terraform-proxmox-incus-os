@@ -51,8 +51,8 @@ Get information about incus os and incus:
 
 ```bash
 # see https://github.com/lxc/incus-os/blob/main/doc/rest-api.md
-# see https://github.com/lxc/incus-os/tree/202511212125/incus-osd/internal/rest
-# see https://github.com/lxc/incus-os/blob/202511212125/incus-osd/internal/rest/server.go
+# see https://github.com/lxc/incus-os/tree/202511280022/incus-osd/internal/rest
+# see https://github.com/lxc/incus-os/blob/202511280022/incus-osd/internal/rest/server.go
 incus query incus-os-example:/os/1.0
 incus admin os system show incus-os-example:security
 incus query incus-os-example:/os/1.0/system/security
@@ -112,8 +112,8 @@ Reboot or poweroff incus os:
 
 ```bash
 # see https://linuxcontainers.org/incus-os/docs/main/reference/api/
-# see https://github.com/lxc/incus-os/blob/202511212125/doc/rest-api.yaml
-# see https://github.com/lxc/incus-os/blob/202511212125/incus-osd/internal/rest/api_system.go
+# see https://github.com/lxc/incus-os/blob/202511280022/doc/rest-api.yaml
+# see https://github.com/lxc/incus-os/blob/202511280022/incus-osd/internal/rest/api_system.go
 incus query -X POST incus-os-example:/os/1.0/system/:reboot
 incus query -X POST incus-os-example:/os/1.0/system/:poweroff
 ```
