@@ -118,6 +118,11 @@ Reboot or poweroff incus os:
 # see https://github.com/lxc/incus-os/blob/202511292320/incus-osd/internal/rest/api_system.go
 incus query -X POST incus-os-example:/os/1.0/system/:reboot
 incus query -X POST incus-os-example:/os/1.0/system/:poweroff
+# NB there is also a incus admin sub-command for these actions, but those ask
+#    for confirmation and do not have a flag to automatically confirm the
+#    action, so we have to workaround that with the `yes` command.
+yes | incus admin os system reboot incus-os-example:
+yes | incus admin os system poweroff incus-os-example:
 ```
 
 Destroy the infrastructure:
