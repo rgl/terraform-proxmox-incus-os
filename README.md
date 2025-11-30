@@ -51,15 +51,17 @@ Get information about incus os and incus:
 
 ```bash
 # see https://github.com/lxc/incus-os/blob/main/doc/rest-api.md
-# see https://github.com/lxc/incus-os/tree/202511280022/incus-osd/internal/rest
-# see https://github.com/lxc/incus-os/blob/202511280022/incus-osd/internal/rest/server.go
+# see https://github.com/lxc/incus-os/tree/202511292320/incus-osd/internal/rest
+# see https://github.com/lxc/incus-os/blob/202511292320/incus-osd/internal/rest/server.go
+incus admin os show incus-os-example:
 incus query incus-os-example:/os/1.0
-incus admin os system show incus-os-example:security
+incus admin os system security show incus-os-example:
 incus query incus-os-example:/os/1.0/system/security
 incus query incus-os-example:/os/1.0/system/network
 incus query incus-os-example:/os/1.0/system/storage
 incus query incus-os-example:/os/1.0/system/update
 incus query incus-os-example:/os/1.0/system/provider
+incus admin os system resources show incus-os-example:
 incus query incus-os-example:/os/1.0/system/resources
 incus query incus-os-example:/os/1.0/system/resources | jq .storage.disks
 incus query incus-os-example:/os/1.0/system/resources | jq .network.cards
@@ -112,8 +114,8 @@ Reboot or poweroff incus os:
 
 ```bash
 # see https://linuxcontainers.org/incus-os/docs/main/reference/api/
-# see https://github.com/lxc/incus-os/blob/202511280022/doc/rest-api.yaml
-# see https://github.com/lxc/incus-os/blob/202511280022/incus-osd/internal/rest/api_system.go
+# see https://github.com/lxc/incus-os/blob/202511292320/doc/rest-api.yaml
+# see https://github.com/lxc/incus-os/blob/202511292320/incus-osd/internal/rest/api_system.go
 incus query -X POST incus-os-example:/os/1.0/system/:reboot
 incus query -X POST incus-os-example:/os/1.0/system/:poweroff
 ```

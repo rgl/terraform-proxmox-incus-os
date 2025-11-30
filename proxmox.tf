@@ -33,7 +33,7 @@ resource "terraform_data" "incus_os_seed_data" {
   triggers_replace = {
     iso_path = "tmp/incus-os-seed-data-${local.nodes[count.index].name}.iso"
 
-    # see https://github.com/lxc/incus-os/blob/202511280022/incus-osd/api/system_network.go
+    # see https://github.com/lxc/incus-os/blob/202511292320/incus-osd/api/system_network.go
     network_config = yamlencode({
       version = "1"
       dns = {
