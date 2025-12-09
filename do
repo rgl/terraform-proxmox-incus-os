@@ -3,7 +3,7 @@ set -euo pipefail
 
 # see https://github.com/lxc/incus-os/tags
 # renovate: datasource=github-tags depName=lxc/incus-os
-incus_os_version="202511292320"
+incus_os_version="202512080339"
 
 export CHECKPOINT_DISABLE='1'
 export TF_LOG='DEBUG' # TRACE, DEBUG, INFO, WARN or ERROR.
@@ -14,7 +14,7 @@ function step {
 }
 
 function build_incus_os_image {
-  # see https://github.com/lxc/incus-os/tree/202511292320/doc
+  # see https://github.com/lxc/incus-os/tree/202512080339/doc
   # see https://images.linuxcontainers.org/os/
   local img_archive_url="https://images.linuxcontainers.org/os/$incus_os_version/x86_64/IncusOS_$incus_os_version.img.gz"
   local img_archive_path="tmp/incus-os/incus-os-$incus_os_version.img"
