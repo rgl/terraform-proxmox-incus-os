@@ -4,7 +4,7 @@
 
 An example [Incus OS](https://github.com/lxc/incus-os) cluster running in Proxmox QEMU/KVM Virtual Machines using terraform.
 
-# Usage (Ubuntu 22.04 host)
+# Usage (Ubuntu 24.04 host)
 
 Install the [incus cli](https://github.com/lxc/incus/releases).
 
@@ -14,7 +14,7 @@ Set your Proxmox details:
 
 ```bash
 # see https://registry.terraform.io/providers/bpg/proxmox/latest/docs#argument-reference
-# see environment variables at https://github.com/bpg/terraform-provider-proxmox/blob/v0.90.0/proxmoxtf/provider/provider.go#L52-L61
+# see environment variables at https://github.com/bpg/terraform-provider-proxmox/blob/v0.91.0/proxmoxtf/provider/provider.go#L52-L61
 cat >secrets-proxmox.sh <<EOF
 unset HTTPS_PROXY
 #export HTTPS_PROXY='http://localhost:8080'

@@ -2,7 +2,7 @@ locals {
   cluster_node_network_prefix_length = tonumber(regex("/([0-9]{1,2})$", var.cluster_node_network)[0])
 }
 
-# see https://registry.terraform.io/providers/bpg/proxmox/0.90.0/docs/resources/virtual_environment_file
+# see https://registry.terraform.io/providers/bpg/proxmox/0.91.0/docs/resources/virtual_environment_file
 resource "proxmox_virtual_environment_file" "incus_os" {
   node_name    = var.proxmox_pve_node_name
   datastore_id = "local"
@@ -13,7 +13,7 @@ resource "proxmox_virtual_environment_file" "incus_os" {
   }
 }
 
-# see https://registry.terraform.io/providers/bpg/proxmox/0.90.0/docs/resources/virtual_environment_file
+# see https://registry.terraform.io/providers/bpg/proxmox/0.91.0/docs/resources/virtual_environment_file
 resource "proxmox_virtual_environment_file" "incus_os_seed_data" {
   count        = var.node_count
   node_name    = var.proxmox_pve_node_name
@@ -108,7 +108,7 @@ resource "terraform_data" "incus_os_seed_data" {
   }
 }
 
-# see https://registry.terraform.io/providers/bpg/proxmox/0.90.0/docs/resources/virtual_environment_vm
+# see https://registry.terraform.io/providers/bpg/proxmox/0.91.0/docs/resources/virtual_environment_vm
 resource "proxmox_virtual_environment_vm" "incus_os" {
   count           = var.node_count
   name            = "${var.prefix}-${local.nodes[count.index].name}"
