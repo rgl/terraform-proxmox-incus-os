@@ -43,6 +43,7 @@ resource "terraform_data" "incus_os_seed_data" {
       }
       time = {
         ntp_servers = ["pt.pool.ntp.org"]
+        timezone    = "Europe/Lisbon"
       }
       interfaces = [
         {
