@@ -6,7 +6,7 @@ terraform {
     # see https://github.com/bpg/terraform-provider-proxmox
     proxmox = {
       source  = "bpg/proxmox"
-      version = "0.91.0"
+      version = "0.93.0"
     }
     # see https://registry.terraform.io/providers/lxc/incus
     # see https://github.com/lxc/terraform-provider-incus
