@@ -14,7 +14,7 @@ Set your Proxmox details:
 
 ```bash
 # see https://registry.terraform.io/providers/bpg/proxmox/latest/docs#argument-reference
-# see environment variables at https://github.com/bpg/terraform-provider-proxmox/blob/v0.93.0/proxmoxtf/provider/provider.go#L52-L61
+# see environment variables at https://github.com/bpg/terraform-provider-proxmox/blob/v0.95.0/proxmoxtf/provider/provider.go#L52-L61
 cat >secrets-proxmox.sh <<EOF
 unset HTTPS_PROXY
 #export HTTPS_PROXY='http://localhost:8080'
@@ -51,9 +51,9 @@ Get information about incus os and incus:
 
 ```bash
 # see https://linuxcontainers.org/incus-os/docs/main/reference/api/
-# see https://github.com/lxc/incus-os/blob/202601141549/doc/rest-api.yaml
-# see https://github.com/lxc/incus-os/tree/202601141549/incus-osd/internal/rest
-# see https://github.com/lxc/incus-os/blob/202601141549/incus-osd/internal/rest/server.go
+# see https://github.com/lxc/incus-os/blob/202602100206/doc/rest-api.yaml
+# see https://github.com/lxc/incus-os/tree/202602100206/incus-osd/internal/rest
+# see https://github.com/lxc/incus-os/blob/202602100206/incus-osd/internal/rest/server.go
 incus admin os show incus-os-example:
 incus query incus-os-example:/os/1.0
 incus admin os system security show incus-os-example:
@@ -74,6 +74,7 @@ incus query incus-os-example:/os/1.0/applications
 incus query incus-os-example:/os/1.0/applications/incus
 incus query incus-os-example:/os/1.0/debug
 incus query incus-os-example:/os/1.0/debug/log
+incus query incus-os-example:/os/1.0/debug/processes | jq -r .
 incus info incus-os-example:
 ```
 
@@ -115,8 +116,8 @@ Reboot or poweroff incus os:
 
 ```bash
 # see https://linuxcontainers.org/incus-os/docs/main/reference/api/
-# see https://github.com/lxc/incus-os/blob/202601141549/doc/rest-api.yaml
-# see https://github.com/lxc/incus-os/blob/202601141549/incus-osd/internal/rest/api_system.go
+# see https://github.com/lxc/incus-os/blob/202602100206/doc/rest-api.yaml
+# see https://github.com/lxc/incus-os/blob/202602100206/incus-osd/internal/rest/api_system.go
 incus query -X POST incus-os-example:/os/1.0/system/:reboot
 incus query -X POST incus-os-example:/os/1.0/system/:poweroff
 # NB there is also a incus admin sub-command for these actions, but those ask
