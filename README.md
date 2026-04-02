@@ -103,6 +103,8 @@ incus list incus-os-example:
 incus config show incus-os-example:debian-vm --expanded
 incus info incus-os-example:debian-vm --show-log
 incus console incus-os-example:debian-vm --show-log
+incus wait incus-os-example:debian-vm agent
+incus wait incus-os-example:debian-vm ip
 incus exec incus-os-example:debian-vm -- cat /etc/os-release
 incus exec incus-os-example:debian-vm -- ip addr
 incus exec incus-os-example:debian-vm -- mount
