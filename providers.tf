@@ -1,18 +1,18 @@
 # see https://github.com/hashicorp/terraform
 terraform {
-  required_version = "1.14.8"
+  required_version = "1.15.2"
   required_providers {
     # see https://registry.terraform.io/providers/bpg/proxmox
     # see https://github.com/bpg/terraform-provider-proxmox
     proxmox = {
       source  = "bpg/proxmox"
-      version = "0.99.0"
+      version = "0.106.0"
     }
     # see https://registry.terraform.io/providers/lxc/incus
     # see https://github.com/lxc/terraform-provider-incus
     incus = {
       source  = "lxc/incus"
-      version = "1.0.2"
+      version = "1.1.0"
     }
   }
 }
