@@ -51,9 +51,9 @@ Get information about incus os and incus:
 
 ```bash
 # see https://linuxcontainers.org/incus-os/docs/main/reference/api/
-# see https://github.com/lxc/incus-os/blob/202605072043/doc/rest-api.yaml
-# see https://github.com/lxc/incus-os/tree/202605072043/incus-osd/internal/rest
-# see https://github.com/lxc/incus-os/blob/202605072043/incus-osd/internal/rest/server.go
+# see https://github.com/lxc/incus-os/blob/202605212055/doc/rest-api.yaml
+# see https://github.com/lxc/incus-os/tree/202605212055/incus-osd/internal/rest
+# see https://github.com/lxc/incus-os/blob/202605212055/incus-osd/internal/rest/server.go
 incus admin os show incus-os-example:
 incus query incus-os-example:/os/1.0
 incus admin os system security show incus-os-example:
@@ -118,8 +118,8 @@ Reboot or poweroff incus os:
 
 ```bash
 # see https://linuxcontainers.org/incus-os/docs/main/reference/api/
-# see https://github.com/lxc/incus-os/blob/202605072043/doc/rest-api.yaml
-# see https://github.com/lxc/incus-os/blob/202605072043/incus-osd/internal/rest/api_system.go
+# see https://github.com/lxc/incus-os/blob/202605212055/doc/rest-api.yaml
+# see https://github.com/lxc/incus-os/blob/202605212055/incus-osd/internal/rest/api_system.go
 incus query -X POST incus-os-example:/os/1.0/system/:reboot
 incus query -X POST incus-os-example:/os/1.0/system/:poweroff
 # NB there is also a incus admin sub-command for these actions, but those ask
