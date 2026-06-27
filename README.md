@@ -14,10 +14,12 @@ Set your Proxmox details:
 
 ```bash
 # see https://registry.terraform.io/providers/bpg/proxmox/latest/docs#argument-reference
-# see environment variables at https://github.com/bpg/terraform-provider-proxmox/blob/v0.107.0/proxmoxtf/provider/provider.go#L52-L61
+# see environment variables at https://github.com/bpg/terraform-provider-proxmox/blob/v0.111.0/proxmoxtf/provider/provider.go#L52-L61
+# NB this expects that the proxmox_pve_node_username user has passwordless ssh key authentication and sudo.
 cat >secrets-proxmox.sh <<EOF
 unset HTTPS_PROXY
 #export HTTPS_PROXY='http://localhost:8080'
+export TF_VAR_proxmox_pve_node_username='vagrant'
 export TF_VAR_proxmox_pve_node_address='192.168.8.21'
 export PROXMOX_VE_INSECURE='1'
 export PROXMOX_VE_ENDPOINT="https://$TF_VAR_proxmox_pve_node_address:8006"
@@ -51,9 +53,9 @@ Get information about incus os and incus:
 
 ```bash
 # see https://linuxcontainers.org/incus-os/docs/main/reference/api/
-# see https://github.com/lxc/incus-os/blob/202605310326/doc/rest-api.yaml
-# see https://github.com/lxc/incus-os/tree/202605310326/incus-osd/internal/rest
-# see https://github.com/lxc/incus-os/blob/202605310326/incus-osd/internal/rest/server.go
+# see https://github.com/lxc/incus-os/blob/202606270249/doc/rest-api.yaml
+# see https://github.com/lxc/incus-os/tree/202606270249/incus-osd/internal/rest
+# see https://github.com/lxc/incus-os/blob/202606270249/incus-osd/internal/rest/server.go
 incus admin os show incus-os-example:
 incus query incus-os-example:/os/1.0
 incus admin os system security show incus-os-example:
@@ -118,8 +120,8 @@ Reboot or poweroff incus os:
 
 ```bash
 # see https://linuxcontainers.org/incus-os/docs/main/reference/api/
-# see https://github.com/lxc/incus-os/blob/202605310326/doc/rest-api.yaml
-# see https://github.com/lxc/incus-os/blob/202605310326/incus-osd/internal/rest/api_system.go
+# see https://github.com/lxc/incus-os/blob/202606270249/doc/rest-api.yaml
+# see https://github.com/lxc/incus-os/blob/202606270249/incus-osd/internal/rest/api_system.go
 incus query -X POST incus-os-example:/os/1.0/system/:reboot
 incus query -X POST incus-os-example:/os/1.0/system/:poweroff
 # NB there is also a incus admin sub-command for these actions, but those ask

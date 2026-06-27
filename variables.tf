@@ -1,3 +1,8 @@
+variable "proxmox_pve_node_username" {
+  type    = string
+  default = "vagrant"
+}
+
 variable "proxmox_pve_node_name" {
   type    = string
   default = "pve"
@@ -11,7 +16,7 @@ variable "proxmox_pve_node_address" {
 variable "incus_os_version" {
   type = string
   # renovate: datasource=github-tags depName=lxc/incus-os
-  default = "202605310326"
+  default = "202606270249"
   validation {
     condition     = can(regex("^\\d+", var.incus_os_version))
     error_message = "Must be a version number."
